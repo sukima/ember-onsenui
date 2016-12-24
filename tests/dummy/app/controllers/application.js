@@ -1,7 +1,14 @@
 import Ember from 'ember';
 
-const { Controller, inject: { service } } = Ember;
+const { Controller, set, inject: { service } } = Ember;
 
 export default Controller.extend({
-  menu: service()
+  menu: service(),
+
+  actions: {
+    transitionRoute(routeName) {
+      set(this, 'menu.collapsed', true);
+      this.transitionToRoute(routeName);
+    }
+  }
 });

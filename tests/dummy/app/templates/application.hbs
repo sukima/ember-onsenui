@@ -1,17 +1,15 @@
-<ons-splitter>
-  <ons-splitter-side side="left" width="220px" collapse swipeable>
-    <ons-page>
-      <ons-list>
-        <ons-list-item onclick={{!action "linkToRoute" "index"}} tappable>
-          Home
-        </ons-list-item>
-        <ons-list-item onclick={{!action "linkToRoute" "creating-a-page"}} tappable>
-          Settings
-        </ons-list-item>
-      </ons-list>
-    </ons-page>
-  </ons-splitter-side>
-  <ons-splitter-content>
+{{#ons-splitter as |splitter|}}
+  {{#splitter.side-left
+      width="220px"
+      swipeable=true
+      collapse=true
+      isCollapsed=menu.collapsed}}
+    {{#ons-page}}
+      {{sidebar-menu linkToRoute=(action "transitionRoute")}}
+    {{/ons-page}}
+  {{/splitter.side-left}}
+
+  {{#splitter.content}}
     {{outlet}}
-  </ons-splitter-content>
-</ons-splitter>
+  {{/splitter.content}}
+{{/ons-splitter}}

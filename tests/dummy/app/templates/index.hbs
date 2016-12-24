@@ -1,14 +1,16 @@
 {{#ons-page}}
-  <ons-toolbar>
+  {{#ons-toolbar}}
     <div class="left">
-      <ons-toolbar-button onclick={{action menu.open}}>
-        <ons-icon icon="md-menu"></ons-icon>
-      </ons-toolbar-button>
+      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+        {{ons-icon icon="md-menu"}}
+      {{/ons-toolbar-button}}
     </div>
+
     <div class="center">
-      Main
+      Ember bindings for Onsen UI
     </div>
-  </ons-toolbar>
+  {{/ons-toolbar}}
+
   <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
     Swipe right to open the menu!
   </p>

@@ -1,9 +1,11 @@
 import Ember from 'ember';
 import ons from 'ember-onsenui';
 
-const { Controller } = Ember;
+const { Controller, inject: { service } } = Ember;
 
 export default Controller.extend({
+  menu: service(),
+
   demoTitle: 'My app',
 
   actions: {
