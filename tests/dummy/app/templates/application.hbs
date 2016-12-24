@@ -1,14 +1,17 @@
-<ons-page>
-  <ons-toolbar>
-    <div class="center">Onsen UI in Ember</div>
-    <div class="right">
-      <ons-toolbar-button>
-        <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>  
-      </ons-toolbar-button>
-    </div>
-  </ons-toolbar>
-
-  <p style="text-align: center">
-    <ons-button onclick={{action "alertMe"}}>Click me!</ons-button>
-  </p>
-</ons-page>
+<ons-splitter>
+  <ons-splitter-side side="left" width="220px" collapse swipeable>
+    <ons-page>
+      <ons-list>
+        <ons-list-item onclick={{!action "linkToRoute" "index"}} tappable>
+          Home
+        </ons-list-item>
+        <ons-list-item onclick={{!action "linkToRoute" "creating-a-page"}} tappable>
+          Settings
+        </ons-list-item>
+      </ons-list>
+    </ons-page>
+  </ons-splitter-side>
+  <ons-splitter-content>
+    {{outlet}}
+  </ons-splitter-content>
+</ons-splitter>
