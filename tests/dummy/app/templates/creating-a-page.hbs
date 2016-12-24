@@ -18,6 +18,8 @@
   {{/ons-toolbar}}
 
   <p style="text-align: center">
-    <ons-button onclick={{action "alertMe"}}>Click me!</ons-button>
+    {{#ons-button click=(action "alertMe")}}
+      Click me!
+    {{/ons-button}}
   </p>
 {{/ons-page}}
