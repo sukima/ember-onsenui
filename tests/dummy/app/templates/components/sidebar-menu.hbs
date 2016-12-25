@@ -1,8 +1,8 @@
-<ons-list>
-  <ons-list-item onclick={{action linkToRoute "index"}} tappable>
+{{#ons-list as |list|}}
+  {{#list.item tappable=true click=(action linkToRoute "index")}}
     Home
-  </ons-list-item>
-  <ons-list-item onclick={{action linkToRoute "creating-a-page"}} tappable>
+  {{/list.item}}
+  {{#list.item tappable=true click=(action linkToRoute "creating-a-page")}}
     Creating A Page
-  </ons-list-item>
-</ons-list>
+  {{/list.item}}
+{{/ons-list}}
