@@ -1,0 +1,21 @@
+{{#ons-page}}
+  {{#ons-toolbar}}
+    <div class="left">
+      {{#unless hideBackButton}}
+        {{ons-back-button click=(action "goBack")}}
+      {{/unless}}
+    </div>
+
+    <div class="center">
+      Navigation Stack Demo
+    </div>
+
+    <div class="right">
+      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+        {{ons-icon icon="md-menu"}}
+      {{/ons-toolbar-button}}
+    </div>
+  {{/ons-toolbar}}
+
+  {{liquid-outlet}}
+{{/ons-page}}

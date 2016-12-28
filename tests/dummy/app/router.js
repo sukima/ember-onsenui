@@ -8,6 +8,11 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('creating-a-page');
+  this.route('stack-navigation', function () {
+    this.route('stack1');
+    this.route('stack2');
+    this.route('stack3');
+  });
 });
 
 export default Router;
