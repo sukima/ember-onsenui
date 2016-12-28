@@ -1,5 +1,5 @@
 {{#ons-splitter as |splitter|}}
-  {{#splitter.side-left
+  {{#splitter.side-right
       width="220px"
       swipeable=true
       collapse=true
@@ -7,7 +7,7 @@
     {{#ons-page}}
       {{sidebar-menu linkToRoute=(action "transitionRoute")}}
     {{/ons-page}}
-  {{/splitter.side-left}}
+  {{/splitter.side-right}}
 
   {{#splitter.content}}
     {{outlet}}
