@@ -2,10 +2,8 @@
 'use strict';
 
 var path = require('path');
-var util = require('util');
-var extend = util._extend;
 
-var defaultOptions = {
+var DEFAULT_OPTIONS = {
   importOnsenuiCSS: true,
   importFontAwesome: true,
   importIonIcons: true,
@@ -17,7 +15,7 @@ module.exports = {
   name: 'ember-onsenui',
   included: function included(app) {
     this._super.included(app);
-    var options = extend(defaultOptions, app.options['ember-onsenui']);
+    var options = Object.assign({}, DEFAULT_OPTIONS, app.options['emberOnsenui']);
     var onsenuiPath = path.join(app.bowerDirectory, 'onsenui');
 
     if (options.importOnsenuiCSS) {
