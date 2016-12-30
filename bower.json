@@ -3,6 +3,7 @@
   "dependencies": {
     "ember": "~2.8.0",
     "ember-cli-shims": "0.1.1",
-    "onsenui": "^2.0.5"
+    "onsenui": "^2.0.5",
+    "highlightjs": "^9.8.0"
   }
 }
