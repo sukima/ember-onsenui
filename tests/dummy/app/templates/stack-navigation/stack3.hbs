@@ -1,7 +1,45 @@
-<p style="text-align: center">
-  Stack 3
-</p>
+<div class="content">
+  <p style="text-align: center">
+    <small>Last page in stack</small>
+  </p>
 
-<p style="text-align: center">
-  Last page in stack
-</p>
+  <p>
+    To achive animations you can use the
+    <a href="http://ember-animation.github.io/liquid-fire/">liquid-fire</a> addon
+    and substitute the <code>\{{outlet}}</code> with
+    <code>\{{liquid-outlet}}</code>.
+  </p>
+
+  <p>
+    Somethings to know about liquid-fire and the assumptions that Onsen UI has
+    about the DOM:
+  </p>
+
+  <ul>
+    <li>
+      liquid-fire wraps its components and outlets with two nested
+      <code>&lt;div&gt;</code>s.
+    </li>
+    <li>
+      Onsen UI has very particular needs for the DOM to be clean of rouge
+      <code>&lt;div&gt;</code>s.
+    </li>
+    <li>
+      It is very easy to confuse Onsen UI with rouge
+      <code>&lt;div&gt;</code>s and so care must be taken when using
+      liquid-fire and how your templates are organized.
+    </li>
+  </ul>
+
+  <p>
+    For example, nesting the <code>\{{ons-toolbar}}</code> under a
+    <code>\{{liquid-outlet}}</code> will wrap the toolbar in a div which breaks
+    Onsen UI because a toolbar <em>must</em> be a direct descendent of a
+    <code>\{{ons-page}}</code>.
+  </p>
+
+  <p>
+    In the case where you do wish to do this you must move the
+    <code>\{{ons-page}}</code> into the subroute <em>with</em> the toolbar.
+  </p>
+</div>

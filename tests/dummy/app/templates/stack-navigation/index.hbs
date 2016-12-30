@@ -1,5 +1,36 @@
-<p style="text-align: center">
-  {{#link-to "stack-navigation.stack1" tagName="ons-button"}}
-    Push to navigation stack
-  {{/link-to}}
-</p>
+<div class="content">
+  <p>
+    Onsen UI offers a stack based navigation solution. However,
+    the concept is a bit of a re-invention of how Ember manages
+    it’s own routing. Because of this, the
+    <code>&lt;ons-navigator&gt;</code> does not integrate well with
+    Ember’s ecosystem.
+  </p>
+
+  <p>
+    This leaves three options:
+    <ol>
+      <li>Use Ember’s routing system as intended.</li>
+      <li>Implement your own navigation stack.</li>
+      <li>Or use Onsen’s navigator on it’s own without Ember integration.</li>
+    </ol>
+  </p>
+
+  <p>
+    The demo here is an example of (1) using Ember’s routing system along with
+    <a href="http://ember-animation.github.io/liquid-fire/">liquid-fire</a> for
+    animations.
+  </p>
+
+  <p>
+    The last option (3) means not using Ember’s routing and instead render the
+    entire stack in one template separated by <code>&lt;ons-template&gt;</code>
+    elements and a <code>&lt;ons-navigator&gt;</code> element.
+  </p>
+
+  <p style="text-align: center">
+    {{#link-to "stack-navigation.stack1" tagName="ons-button"}}
+      Read more about stack like navigation.
+    {{/link-to}}
+  </p>
+</div>

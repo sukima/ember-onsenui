@@ -1,9 +1,44 @@
-<p style="text-align: center">
-  Stack 2
-</p>
+<div class="content">
+  <p>
+    Pushing to the stack is simply a matter of linking to a route that is a
+    subroute so that the toolbar is rendered with a back button (defined in
+    <code>stack-navigation.hbs</code> on the previous page).
+  </p>
 
-<p style="text-align: center">
-  {{#link-to "stack-navigation.stack3" tagName="ons-button"}}
-    Push to navigation stack
-  {{/link-to}}
-</p>
+  <p>
+    For example we could link to <code>stack1</code> with the
+    <code>\{{link-to}}</code> helper:
+  </p>
+
+{{#code-highlight lang="handlebars"}}
+\{{#link-to "stack-navigation.stack1"}}
+  Push to stack
+\{{/link-to}}
+{{/code-highlight}}
+
+  <p>
+    To pop from the stack we assigned the <code>goBack</code> action to the
+    <code>\{{ons-back-button}}</code>:
+  </p>
+
+{{#code-highlight lang="handlebars"}}
+\{{ons-back-button click=(action "goBack")}}
+{{/code-highlight}}
+
+  <p>And in our <code>stack-navigation</code> controller define the actions as:</p>
+
+{{#code-highlight lang="js"}}
+// controllers/stack-navigation.js
+actions: {
+  goBack() {
+    window.history.back();
+  }
+}
+{{/code-highlight}}
+
+  <p style="text-align: center">
+    {{#link-to "stack-navigation.stack3" tagName="ons-button"}}
+      Learn about animations with liquid-fire
+    {{/link-to}}
+  </p>
+</div>

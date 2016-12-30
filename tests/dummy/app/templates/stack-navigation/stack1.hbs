@@ -1,9 +1,45 @@
-<p style="text-align: center">
-  Stack 1
-</p>
+<div class="content">
+  <p>
+    Ember uses its routing system as a stack. The browser history itself stores
+    the stack and we can push and pop from this stack with
+    <code>\{{link-to}}</code> and <code>window.history.back()</code>
+    respectively.
+  </p>
 
-<p style="text-align: center">
-  {{#link-to "stack-navigation.stack2" tagName="ons-button"}}
-    Push to navigation stack
-  {{/link-to}}
-</p>
+  <p>Given the following routes in Ember:</p>
+
+{{#code-highlight lang="js"}}
+Router.map(function() {
+  this.route('stack-navigation', function () {
+    this.route('stack1');
+    this.route('stack2');
+    this.route('stack3');
+  });
+});
+{{/code-highlight}}
+
+  <p>Then your <code>stack-navigation.hbs</code> might look like:</p>
+
+{{#code-highlight lang="handlebars"}}
+\{{#ons-page}}
+  \{{#ons-toolbar}}
+    &lt;div class="left"&gt;
+      \{{ons-back-button click=(action "goBack")}}
+    &lt;/div&gt;
+
+    &lt;div class="center"&gt;
+      Navigation Stack Title
+    &lt;/div&gt;
+  \{{/ons-toolbar}}
+
+  \{{outlet}}
+
+\{{/ons-page}}
+{{/code-highlight}}
+
+  <p style="text-align: center">
+    {{#link-to "stack-navigation.stack2" tagName="ons-button"}}
+      Read about pushing and popping from the stack
+    {{/link-to}}
+  </p>
+</div>
