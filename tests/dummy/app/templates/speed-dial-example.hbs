@@ -1,0 +1,44 @@
+{{#ons-page}}
+  {{#ons-toolbar}}
+    <div class="center">
+      Floating speed dial
+    </div>
+
+    <div class="right">
+      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+        {{ons-icon icon="md-menu"}}
+      {{/ons-toolbar-button}}
+    </div>
+  {{/ons-toolbar}}
+
+  <p style="text-align: center;">
+    {{#if fabIsVisible}}
+      {{#ons-button click=(action (mut fabIsVisible) false)}}
+        Hide the speed dial menu
+      {{/ons-button}}
+    {{else}}
+      {{#ons-button click=(action (mut fabIsVisible) true)}}
+        Show the speed dial menu
+      {{/ons-button}}
+    {{/if}}
+  </p>
+
+  {{#ons-speed-dial
+      position="bottom right"
+      direction="up"
+      visible=fabIsVisible
+      as |dial|}}
+    {{#dial.fab}}
+      {{ons-icon icon="md-share"}}
+    {{/dial.fab}}
+    {{#dial.item}}
+      {{ons-icon icon="md-twitter"}}
+    {{/dial.item}}
+    {{#dial.item}}
+      {{ons-icon icon="md-facebook"}}
+    {{/dial.item}}
+    {{#dial.item}}
+      {{ons-icon icon="md-google-plus"}}
+    {{/dial.item}}
+  {{/ons-speed-dial}}
+{{/ons-page}}

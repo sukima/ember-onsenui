@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('stack3');
   });
   this.route('fab-example');
+  this.route('speed-dial-example');
 });
 
 export default Router;
