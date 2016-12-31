@@ -13,6 +13,7 @@ Router.map(function() {
     this.route('stack2');
     this.route('stack3');
   });
+  this.route('fab-example');
 });
 
 export default Router;
