@@ -1,0 +1,25 @@
+{{#ons-page}}
+  {{#ons-toolbar}}
+    <div class="center">
+      Gesture Detector
+    </div>
+
+    <div class="right">
+      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+        {{ons-icon icon="md-menu"}}
+      {{/ons-toolbar-button}}
+    </div>
+  {{/ons-toolbar}}
+
+  {{#ons-gesture-detector events=eventHandlers}}
+    <div class="event-box">
+      <p>Try a gesture here</p>
+
+      {{#each eventBuffer as |eventPill|}}
+        <span class="event-pill" style={{eventPill.style}}>{{eventPill.name}}</span>
+      {{else}}
+        <p>Requires touch events support</p>
+      {{/each}}
+    </div>
+  {{/ons-gesture-detector}}
+{{/ons-page}}

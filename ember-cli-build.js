@@ -5,6 +5,9 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 module.exports = function(defaults) {
   var app = new EmberAddon(defaults, {
     // Add options here
+    babel: {
+      includePolyfill: true
+    }
   });
 
   /*
@@ -13,6 +16,8 @@ module.exports = function(defaults) {
     This build file does *not* influence how the addon or the app using it
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
+
+  app.import('bower_components/randomcolor/randomColor.js');
 
   return app.toTree();
 };

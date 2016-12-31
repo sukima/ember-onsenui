@@ -15,6 +15,7 @@ Router.map(function() {
   });
   this.route('fab-example');
   this.route('speed-dial-example');
+  this.route('gestures');
 });
 
 export default Router;
