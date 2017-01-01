@@ -1,0 +1,48 @@
+<p style="text-align: center;">
+  Carousel 2
+</p>
+
+<p>
+  Using Ember's dynamic component helper and liquid-fire we can swap out
+  content and have it animated. This can be triggered via a button or through a
+  timer. This demo is an example of the former.
+</p>
+
+<p>Given a list of objects representing the different slides:</p>
+
+{{#code-highlight lang="js"}}
+const CAROUSEL_SLIDES = [
+  {id: 1, componentName: 'carousel-slide1'},
+  {id: 2, componentName: 'carousel-slide2'},
+  {id: 3, componentName: 'carousel-slide3'},
+  {id: 4, componentName: 'carousel-slide4'}
+];
+{{/code-highlight}}
+
+<p>And a transition that knows how to handle them:</p>
+
+{{#code-highlight lang="js"}}
+// app/transitions.js
+this.transition(
+  this.hasClass('carousel'),
+  this.toValue(function (toValue, fromValue) {
+    return toValue.id &gt; fromValue.id;
+  }),
+  this.use('toLeft'),
+  this.reverse('toRight')
+);
+{{/code-highlight}}
+
+<p>Then the template could look like this:</p>
+
+{{#code-highlight lang="handlebars"}}
+\{{#liquid-bind carouselSlide class="carousel" as |slide|}}
+  \{{component slide.componentName}}
+\{{/liquid-bind}}
+{{/code-highlight}}
+
+<p style="text-align: center;">
+  {{#ons-button click=(action update 1)}}
+    Go to next carousel slide for more
+  {{/ons-button}}
+</p>

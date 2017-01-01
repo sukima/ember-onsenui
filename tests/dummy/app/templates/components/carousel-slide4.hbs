@@ -1,0 +1,23 @@
+<p style="text-align: center;">
+  Carousel 4
+</p>
+
+<p>
+  We could even make the carousel automatic with
+  <a href="http://ember-concurrency.com/">ember-concurrency</a>:
+</p>
+
+{{#code-highlight lang="js"}}
+autoCarousel: task(function * () {
+  while (true) {
+    yield timeout(1000);
+    this.send('updateCursor', 1);
+  }
+}).drop().on('didInsertElement')
+{{/code-highlight}}
+
+<p style="text-align: center;">
+  {{#ons-button click=(action update 1)}}
+    Go to first carousel slide
+  {{/ons-button}}
+</p>

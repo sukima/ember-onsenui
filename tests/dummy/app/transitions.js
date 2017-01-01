@@ -29,4 +29,13 @@ export default function () {
     this.hasClass('refresh-hash'),
     this.use('wait', 200, {then: 'toUp'})
   );
+
+  this.transition(
+    this.hasClass('carousel-animation'),
+    this.toValue(function(toValue, fromValue) {
+      return toValue.id > fromValue.id;
+    }),
+    this.use('toLeft'),
+    this.reverse('toRight')
+  );
 }

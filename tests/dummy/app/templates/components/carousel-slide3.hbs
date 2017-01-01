@@ -1,0 +1,53 @@
+<p style="text-align: center;">
+  Carousel 3
+</p>
+
+<p>
+  To facilitate the carousel wrapping we could implement the
+  <code>updateCursor</code> action:
+</p>
+
+{{#code-highlight lang="js"}}
+export default Ember.Controller.extend({
+  carouselCursor: 0,
+
+  carouselSlide: Ember.computed('carouselCursor', {
+    get() {
+      return CAROUSEL_SLIDES[this.get('carouselCursor')];
+    }
+  }),
+
+  actions: {
+    updateCursor(step) {
+      let len = CAROUSEL_SLIDES.length;
+      let cursor = this.get('carouselCursor') + step;
+      cursor = cursor &lt; 0 ? len - 1 : cursor;
+      this.set('carouselCursor', cursor % len);
+    }
+  }
+});
+{{/code-highlight}}
+
+<p>And then the toolbar buttons:</p>
+
+{{#code-highlight lang="handlebars"}}
+\{{#ons-toolbar}}
+  &lt;div class="left"&gt;
+    \{{#ons-toolbar-button click=(action "updateCursor" -1)}}
+      \{{ons-icon icon="md-chevron-left"}}
+    \{{/ons-toolbar-button}}
+  &lt;/div&gt;
+  &lt;div class="center"&gt;Carousel Example&lt;/div&gt;
+  &lt;div class="right"&gt;
+    \{{#ons-toolbar-button click=(action "updateCursor" 1)}}
+      \{{ons-icon icon="md-chevron-right"}}
+    \{{/ons-toolbar-button}}
+  &lt;/div&gt;
+\{{/ons-toolbar}}
+{{/code-highlight}}
+
+<p style="text-align: center;">
+  {{#ons-button click=(action update 1)}}
+    Go to next carousel slide for more
+  {{/ons-button}}
+</p>
