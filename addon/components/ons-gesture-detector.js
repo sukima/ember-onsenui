@@ -19,7 +19,7 @@ export default Component.extend({
     let eventList = GESTURE_EVENTS.map(name => `${name}.${guid}`).join(' ');
     this.$().on(eventList, evt => {
       let events = get(this, 'events');
-      tryInvoke(events, evt.type, evt);
+      tryInvoke(events, evt.type, [evt]);
     });
   },
 

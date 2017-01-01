@@ -20,3 +20,12 @@
   margin: 5px;
   border-radius: 4px;
 }
+
+.refresh-hash.liquid-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.refresh-hash .liquid-child {
+  display: inline-block;
+}

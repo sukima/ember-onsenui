@@ -19,4 +19,14 @@ export default function () {
     this.use('toLeft'),
     this.reverse('toRight')
   );
+
+  this.transition(
+    this.hasClass('refresh-hint'),
+    this.use('crossFade')
+  );
+
+  this.transition(
+    this.hasClass('refresh-hash'),
+    this.use('wait', 200, {then: 'toUp'})
+  );
 }

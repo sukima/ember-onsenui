@@ -1,0 +1,42 @@
+{{#ons-page}}
+  {{#ons-toolbar}}
+    <div class="center">
+      Pull to refresh
+    </div>
+
+    <div class="right">
+      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+        {{ons-icon icon="md-menu"}}
+      {{/ons-toolbar-button}}
+    </div>
+  {{/ons-toolbar}}
+
+  <div class="content">
+    {{#ons-pull-hook
+        action=(perform refresh)
+        events=(hash
+          initial=(action (mut refreshIcon) "fa-angle-double-down")
+          preaction=(action (mut refreshIcon) "md-refresh")
+          action=(action (mut refreshIcon) "md-spinner")
+        )}}
+      {{ons-icon
+          size="30px"
+          icon=refreshIcon
+          spin=refresh.isRunning}}
+    {{/ons-pull-hook}}
+
+    <p style="text-align: center;">
+      Last refresh hash: <code>{{liquid-bind refreshValue class="refresh-hash"}}</code>
+    </p>
+
+    {{#liquid-unless refresh.lastSuccessful.value class="refresh-hint"}}
+      <p style="text-align: center;">
+        Pull down to refresh
+      </p>
+    {{/liquid-unless}}
+
+    <p style="text-align: center;">
+      {{ons-icon size="30px" icon="fa-angle-double-down"}}
+    </p>
+  </div>
+{{/ons-page}}

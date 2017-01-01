@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('fab-example');
   this.route('speed-dial-example');
   this.route('gestures');
+  this.route('pull-hook');
 });
 
 export default Router;
