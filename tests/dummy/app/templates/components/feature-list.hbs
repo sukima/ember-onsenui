@@ -1,0 +1,21 @@
+{{#ons-list as |list|}}
+  {{#each features as |term|}}
+    {{#list.item
+        modifier=(if term.route "chevron")
+        tappable=(if term.route true false)
+        click=(action "linkToRoute" term.route)}}
+
+      <div class="center">
+        <code>{{term.name}}</code>
+      </div>
+
+      <div class="right implementation-icon {{if term.route 'has-chevron' ''}}">
+        {{#if (is-present term.implemented)}}
+          <span class={{if-implemented term.implemented "item-implemented" "item-not-implemented" "item-alternate"}}>
+            {{ons-icon icon=(if-implemented term.implemented "md-check" "md-close" "md-arrow-split")}}
+          </span>
+        {{/if}}
+      </div>
+    {{/list.item}}
+  {{/each}}
+{{/ons-list}}

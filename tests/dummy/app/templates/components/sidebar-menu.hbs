@@ -1,33 +1,7 @@
 {{#ons-list as |list|}}
-  {{#list.item tappable=true click=(action linkToRoute "index")}}
-    Home
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "creating-a-page")}}
-    Creating A Page
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "stack-navigation")}}
-    Stack Navigation
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "fab-example")}}
-    Floating action button
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "speed-dial-example")}}
-    Floating speed dial
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "gestures")}}
-    Gesture Detector
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "pull-hook")}}
-    Pull to refresh
-  {{/list.item}}
-
-  {{#list.item tappable=true click=(action linkToRoute "carousel-example")}}
-    Carousel Example
-  {{/list.item}}
+  {{#each features.routes as |route|}}
+    {{#list.item tappable=true click=(action linkToRoute route.name)}}
+      {{route.title}}
+    {{/list.item}}
+  {{/each}}
 {{/ons-list}}

@@ -11,7 +11,30 @@
     </div>
   {{/ons-toolbar}}
 
-  <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+  <p style="text-align: center; opacity: 0.6;">
     Swipe left to open the menu!
   </p>
+
+  <p style="text-align: center;">
+    Has Ember component:
+    <span class="item-implemented">
+      {{ons-icon icon="md-check"}}
+    </span>
+  </p>
+
+  <p style="text-align: center;">
+    Has alternative in Ember:
+    <span class="item-implemented">
+      {{ons-icon icon="md-arrow-split"}}
+    </span>
+  </p>
+
+  <p style="text-align: center;">
+    Not implemented:
+    <span class="item-not-implemented">
+      {{ons-icon icon="md-close"}}
+    </span>
+  </p>
+
+  {{feature-list features=filteredTerms linkToRoute=(action "transitionRoute")}}
 {{/ons-page}}

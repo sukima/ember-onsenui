@@ -29,3 +29,23 @@
 .refresh-hash .liquid-child {
   display: inline-block;
 }
+
+.feature-list .implementation-icon {
+  padding-right: 60px;
+}
+
+.feature-list .implementation-icon.has-chevron {
+  padding-right: 40px;
+}
+
+.link-color {
+  color: #33f;
+}
+
+.item-implemented, .item-alternate {
+  color: green;
+}
+
+.item-not-implemented {
+  color: red;
+}
