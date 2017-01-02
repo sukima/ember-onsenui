@@ -3,6 +3,10 @@
   padding-right: 20px;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .event-box {
   background: #eee;
   width: 300px;

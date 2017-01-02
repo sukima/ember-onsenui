@@ -1,4 +1,6 @@
 {{#ons-list as |list|}}
+  {{yield list}}
+
   {{#each features as |term|}}
     {{#list.item
         modifier=(if term.route "chevron")

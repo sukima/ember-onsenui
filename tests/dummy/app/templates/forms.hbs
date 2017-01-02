@@ -1,0 +1,98 @@
+{{#ons-page}}
+  {{#ons-toolbar}}
+    <div class="center">
+      Forms
+    </div>
+
+    <div class="right">
+      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+        {{ons-icon icon="md-menu"}}
+      {{/ons-toolbar-button}}
+    </div>
+  {{/ons-toolbar}}
+
+  <div class="content">
+    <p>
+      <code>\{{ons-input}}</code>  should works as expected with the
+      <code>update</code> attribute an action. An example use:
+    </p>
+
+{{#code-highlight lang="handlebars"}}
+\{{ons-input
+    type="text"
+    value=(readonly myValue)
+    update=(action (mut myValue))}}
+{{/code-highlight}}
+
+    <p>
+      This implementation uses <em>Data Down; Actions Up</em> and does not offer
+      two way binding to the <code>value</code> or <code>checked</code>
+      atributes.
+    </p>
+
+    <h2>Examples:</h2>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <p>
+        {{ons-input
+            modifier="underbar"
+            placeholder="Username (ex. bob)"
+            float=true
+            update=(action (mut fakeUsername))}}
+      </p>
+      <p>
+        {{ons-input
+            modifier="underbar"
+            type="password"
+            placeholder="Password (ex. secret)"
+            float=true
+            update=(action (mut fakePassword))}}
+      </p>
+      <p style="margin-top: 30px;">
+        {{#ons-button click=(action "loginExample")}}
+          Sign in
+        {{/ons-button}}
+      </p>
+    </div>
+
+    {{#ons-list as |list|}}
+      {{#list.header}}Checkboxes{{/list.header}}
+      {{#list.item tappable=true}}
+        <label class="left">
+          {{ons-input type="checkbox" input-id="check-1"}}
+        </label>
+        <label for="check-1" class="center">
+          Apple
+        </label>
+      {{/list.item}}
+      {{#list.item tappable=true}}
+        <label class="left">
+          {{ons-input type="checkbox" input-id="check-2"}}
+        </label>
+        <label for="check-2" class="center">
+          Banana
+        </label>
+      {{/list.item}}
+    {{/ons-list}}
+
+    {{#ons-list as |list|}}
+      {{#list.header}}Radio buttons{{/list.header}}
+      {{#list.item tappable=true}}
+        <label class="left">
+          {{ons-input name="color" type="radio" input-id="radio-1" checked=true}}
+        </label>
+        <label for="radio-1" class="center">
+          Red
+        </label>
+      {{/list.item}}
+      {{#list.item tappable=true}}
+        <label class="left">
+          {{ons-input name="color" type="radio" input-id="radio-2"}}
+        </label>
+        <label for="radio-2" class="center">
+          Blue
+        </label>
+      {{/list.item}}
+    {{/ons-list}}
+  </div>
+{{/ons-page}}

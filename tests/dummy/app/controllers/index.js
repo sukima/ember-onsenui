@@ -17,7 +17,7 @@ export default Controller.extend({
       if (isBlank(query)) {
         return terms;
       } else {
-        let match = new RegExp(`${query.split().join('.*')}`, 'i');
+        let match = new RegExp(`${query.split('').join('.*')}`, 'i');
         return terms.filter(({name}) => match.test(name));
       }
     }

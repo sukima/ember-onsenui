@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('gestures');
   this.route('pull-hook');
   this.route('carousel-example');
+  this.route('forms');
 });
 
 export default Router;

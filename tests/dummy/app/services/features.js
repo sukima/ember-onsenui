@@ -15,7 +15,8 @@ export default Service.extend({
     {name: 'speed-dial-example', title: 'Floating Speed Dial'},
     {name: 'gestures', title: 'Gesture Detector'},
     {name: 'pull-hook', title: 'Pull to Refresh'},
-    {name: 'carousel-example', title: 'Carousel Example'}
+    {name: 'carousel-example', title: 'Carousel Example'},
+    {name: 'forms', title: 'Forms'}
   ],
 
   terms: [
@@ -31,7 +32,7 @@ export default Service.extend({
     {name: 'ons-popover'},
     {name: 'ons-button', implemented: IMPLEMENTED},
     {name: 'ons-fab', route: 'fab-example', implemented: IMPLEMENTED},
-    {name: 'ons-input'},
+    {name: 'ons-input', route: 'forms',  implemented: IMPLEMENTED},
     {name: 'ons-range'},
     {name: 'ons-switch'},
     {name: 'ons-gesture-detector', route: 'gestures', implemented: IMPLEMENTED},

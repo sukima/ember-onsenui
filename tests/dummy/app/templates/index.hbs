@@ -36,5 +36,30 @@
     </span>
   </p>
 
-  {{feature-list features=filteredTerms linkToRoute=(action "transitionRoute")}}
+  {{#feature-list
+      features=filteredTerms
+      linkToRoute=(action "transitionRoute")
+      as |list|}}
+    {{#list.item tappable=false}}
+      <div class="left">
+        {{ons-icon icon="md-search"}}
+      </div>
+
+      <div class="center">
+        {{ons-input query
+            class="full-width"
+            placeholder="Filter"
+            value=(readonly query)
+            update=(action (mut query))}}
+      </div>
+
+      <div class="right">
+        {{#if query}}
+          {{#ons-button modifier="quiet" events=(hash click=(action (mut query) ""))}}
+            {{ons-icon icon="md-close"}}
+          {{/ons-button}}
+        {{/if}}
+      </div>
+    {{/list.item}}
+  {{/feature-list}}
 {{/ons-page}}
