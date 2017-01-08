@@ -5,14 +5,14 @@
     </div>
 
     <div class="right">
-      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+      {{#ons-toolbar-button events=(hash click=(action (mut menu.collapsed) false))}}
         {{ons-icon icon="md-menu"}}
       {{/ons-toolbar-button}}
     </div>
   {{/ons-toolbar}}
 
   <p style="text-align: center">
-    {{#ons-button click=(action "alertMe")}}
+    {{#ons-button events=(hash click=(action "alertMe"))}}
       Click me!
     {{/ons-button}}
   </p>

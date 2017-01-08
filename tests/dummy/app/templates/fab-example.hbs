@@ -5,7 +5,7 @@
     </div>
 
     <div class="right">
-      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+      {{#ons-toolbar-button events=(hash click=(action (mut menu.collapsed) false))}}
         {{ons-icon icon="md-menu"}}
       {{/ons-toolbar-button}}
     </div>
@@ -13,11 +13,11 @@
 
   <p style="text-align: center;">
     {{#if fabIsVisible}}
-      {{#ons-button click=(action (mut fabIsVisible) false)}}
+      {{#ons-button events=(hash click=(action (mut fabIsVisible) false))}}
         Hide the fab button
       {{/ons-button}}
     {{else}}
-      {{#ons-button click=(action (mut fabIsVisible) true)}}
+      {{#ons-button events=(hash click=(action (mut fabIsVisible) true))}}
         Show the fab button
       {{/ons-button}}
     {{/if}}
@@ -26,7 +26,7 @@
   {{#ons-fab
       position="bottom right"
       visible=fabIsVisible
-      click=(action "showSuccessDialog")}}
+      events=(hash click=(action "showSuccessDialog"))}}
     {{ons-icon icon="md-plus"}}
   {{/ons-fab}}
 {{/ons-page}}

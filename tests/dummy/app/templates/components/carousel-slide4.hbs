@@ -17,7 +17,7 @@ autoCarousel: task(function * () {
 {{/code-highlight}}
 
 <p style="text-align: center;">
-  {{#ons-button click=(action update 1)}}
+  {{#ons-button events=(hash click=(action update 1))}}
     Go to first carousel slide
   {{/ons-button}}
 </p>

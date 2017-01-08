@@ -1,7 +1,7 @@
 {{#ons-page}}
   {{#ons-toolbar}}
     <div class="left">
-      {{#ons-toolbar-button click=(action "updateCursor" -1)}}
+      {{#ons-toolbar-button events=(hash click=(action "updateCursor" -1))}}
         {{ons-icon icon="md-chevron-left"}}
       {{/ons-toolbar-button}}
     </div>
@@ -11,11 +11,11 @@
     </div>
 
     <div class="right">
-      {{#ons-toolbar-button click=(action "updateCursor" 1)}}
+      {{#ons-toolbar-button events=(hash click=(action "updateCursor" 1))}}
         {{ons-icon icon="md-chevron-right"}}
       {{/ons-toolbar-button}}
 
-      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+      {{#ons-toolbar-button events=(hash click=(action (mut menu.collapsed) false))}}
         {{ons-icon icon="md-menu"}}
       {{/ons-toolbar-button}}
     </div>

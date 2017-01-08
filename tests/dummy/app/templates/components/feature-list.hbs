@@ -5,7 +5,7 @@
     {{#list.item
         modifier=(if term.route "chevron")
         tappable=(if term.route true false)
-        click=(action "linkToRoute" term.route)}}
+        events=(hash click=(action "linkToRoute" term.route))}}
 
       <div class="center">
         <code>{{term.name}}</code>

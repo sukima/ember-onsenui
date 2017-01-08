@@ -2,7 +2,7 @@
   {{#ons-toolbar}}
     <div class="left">
       {{#unless hideBackButton}}
-        {{ons-back-button click=(action "goBack")}}
+        {{ons-back-button events=(hash click=(action "goBack"))}}
       {{/unless}}
     </div>
 
@@ -11,7 +11,7 @@
     </div>
 
     <div class="right">
-      {{#ons-toolbar-button click=(action (mut menu.collapsed) false)}}
+      {{#ons-toolbar-button events=(hash click=(action (mut menu.collapsed) false))}}
         {{ons-icon icon="md-menu"}}
       {{/ons-toolbar-button}}
     </div>

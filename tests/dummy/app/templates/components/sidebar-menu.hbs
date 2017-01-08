@@ -1,6 +1,6 @@
 {{#ons-list as |list|}}
   {{#each features.routes as |route|}}
-    {{#list.item tappable=true click=(action linkToRoute route.name)}}
+    {{#list.item tappable=true events=(hash click=(action linkToRoute route.name))}}
       {{route.title}}
     {{/list.item}}
   {{/each}}

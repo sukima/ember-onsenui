@@ -33,13 +33,13 @@ export default Ember.Controller.extend({
 {{#code-highlight lang="handlebars"}}
 \{{#ons-toolbar}}
   &lt;div class="left"&gt;
-    \{{#ons-toolbar-button click=(action "updateCursor" -1)}}
+    \{{#ons-toolbar-button events=(hash click=(action "updateCursor" -1))}}
       \{{ons-icon icon="md-chevron-left"}}
     \{{/ons-toolbar-button}}
   &lt;/div&gt;
   &lt;div class="center"&gt;Carousel Example&lt;/div&gt;
   &lt;div class="right"&gt;
-    \{{#ons-toolbar-button click=(action "updateCursor" 1)}}
+    \{{#ons-toolbar-button events=(hash click=(action "updateCursor" 1))}}
       \{{ons-icon icon="md-chevron-right"}}
     \{{/ons-toolbar-button}}
   &lt;/div&gt;
@@ -47,7 +47,7 @@ export default Ember.Controller.extend({
 {{/code-highlight}}
 
 <p style="text-align: center;">
-  {{#ons-button click=(action update 1)}}
+  {{#ons-button events=(hash click=(action update 1))}}
     Go to next carousel slide for more
   {{/ons-button}}
 </p>
