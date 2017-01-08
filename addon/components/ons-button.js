@@ -1,10 +1,21 @@
 import Ember from 'ember';
 import layout from '../templates/components/ons-button';
+import VirtualizedElement from '../-private/virtualized-element';
+import DynamicAttributeBindings
+  from '../-private/dynamic-attribute-bindings';
 
 const { Component, String: { w } } = Ember;
 
-export default Component.extend({
+export default Component.extend(
+  VirtualizedElement, DynamicAttributeBindings, {
   layout,
-  tagName: 'ons-button',
-  attributeBindings: w('modifier ripple disabled')
+  tagName: '',
+  NON_ATTRIBUTE_BOUND_PROPS: w(`
+    id
+    tagName
+    events
+    modifier
+    ripple
+    disable
+  `.trim())
 });
