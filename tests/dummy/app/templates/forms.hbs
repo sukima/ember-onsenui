@@ -18,10 +18,11 @@
     </p>
 
 {{#code-highlight lang="handlebars"}}
-\{{ons-input
-    type="text"
-    value=(readonly myValue)
-    update=(action (mut myValue))}}
+\{{#ons-input fakeUsername
+    modifier="underbar"
+    update=(action (mut fakeUsername))}}
+  Username (ex. bob)
+\{{/ons-input}}
 {{/code-highlight}}
 
     <p>
@@ -34,19 +35,20 @@
 
     <div style="text-align: center; margin-top: 30px;">
       <p>
-        {{ons-input
+        {{#ons-input fakeUsername
             modifier="underbar"
-            placeholder="Username (ex. bob)"
-            float=true
             update=(action (mut fakeUsername))}}
+          Username (ex. bob)
+        {{/ons-input}}
       </p>
       <p>
-        {{ons-input
+        {{#ons-input fakePassword
             modifier="underbar"
             type="password"
-            placeholder="Password (ex. secret)"
             float=true
             update=(action (mut fakePassword))}}
+          Password (ex. secret)
+        {{/ons-input}}
       </p>
       <p style="margin-top: 30px;">
         {{#ons-button events=(hash click=(action "loginExample"))}}

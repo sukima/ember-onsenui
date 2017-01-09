@@ -3,22 +3,50 @@ import { invokeAction } from 'ember-invoke-action';
 import VirtualizedElement from '../-private/virtualized-element';
 import DynamicAttributeBindings
   from '../-private/dynamic-attribute-bindings';
+
+import checkboxLayout from '../templates/components/ons-input/checkbox';
+import dateLayout from '../templates/components/ons-input/date';
+import datetimeLocalLayout from '../templates/components/ons-input/datetime-local';
+import emailLayout from '../templates/components/ons-input/email';
+import monthLayout from '../templates/components/ons-input/month';
+import numberLayout from '../templates/components/ons-input/number';
+import passwordLayout from '../templates/components/ons-input/password';
+import radioLayout from '../templates/components/ons-input/radio';
+import searchLayout from '../templates/components/ons-input/search';
+import telLayout from '../templates/components/ons-input/tel';
 import textLayout from '../templates/components/ons-input/text';
+import timeLayout from '../templates/components/ons-input/time';
+import urlLayout from '../templates/components/ons-input/url';
+import weekLayout from '../templates/components/ons-input/week';
 
 const {
   Component,
-  assert,
   computed,
   observer,
   get,
   isNone,
+  isPresent,
   guidFor,
+  assert,
   run: { schedule, bind },
   String: { w }
 } = Ember;
 
 const LAYOUTS_FROM_TYPE = {
-  text: textLayout
+  checkbox: checkboxLayout,
+  'date': dateLayout,
+  'datetime-local': datetimeLocalLayout,
+  email: emailLayout,
+  month: monthLayout,
+  number: numberLayout,
+  password: passwordLayout,
+  radio: radioLayout,
+  search: searchLayout,
+  tel: telLayout,
+  text: textLayout,
+  time: timeLayout,
+  url: urlLayout,
+  week: weekLayout
 };
 
 const FORBIDDEN_TYPES = ['checkbox', 'radio'];
@@ -30,13 +58,15 @@ function maybeEqual(val1, val2) {
   return val1.toString() === val2.toString();
 }
 
-const OneWayInputComponent = Component.extend(
+const OnsInputComponent = Component.extend(
   VirtualizedElement, DynamicAttributeBindings, {
   tagName: '',
 
   NON_ATTRIBUTE_BOUND_PROPS: w(`
     id
     inputId
+    input-id
+    modifier
     type
     value
     _value
@@ -62,7 +92,10 @@ const OneWayInputComponent = Component.extend(
 
   init() {
     this._super(...arguments);
-    this.layout = LAYOUTS_FROM_TYPE[get(this, 'type')];
+    let type = get(this, 'type');
+    this.layout = LAYOUTS_FROM_TYPE[type];
+    assert(`The {{ons-input}} component does not support type="${type}", use {{ons-input-${type}}} instead.`, FORBIDDEN_TYPES.indexOf(type) === -1);
+    assert(`The {{ons-input}} component does not support type="${type}".`, isPresent(this.layout));
   },
 
   didInsertElement() {
@@ -160,8 +193,8 @@ const OneWayInputComponent = Component.extend(
   })
 });
 
-OneWayInputComponent.reopenClass({
+OnsInputComponent.reopenClass({
   positionalParams: ['positionalParamValue']
 });
 
-export default OneWayInputComponent;
+export default OnsInputComponent;
