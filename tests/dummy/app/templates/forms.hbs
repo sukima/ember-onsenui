@@ -79,11 +79,13 @@
       {{/list.item}}
     {{/ons-list}}
 
+    <p>{{colorOption}}</p>
+
     {{#ons-list as |list|}}
       {{#list.header}}Radio buttons{{/list.header}}
       {{#list.item tappable=true}}
         <label class="left">
-          {{ons-input name="color" type="radio" input-id="radio-1" checked=true}}
+          {{ons-input-radio colorOption update=(action (mut colorOption)) option="red" inputId="radio-1"}}
         </label>
         <label for="radio-1" class="center">
           Red
@@ -91,7 +93,7 @@
       {{/list.item}}
       {{#list.item tappable=true}}
         <label class="left">
-          {{ons-input name="color" type="radio" input-id="radio-2"}}
+          {{ons-input-radio colorOption update=(action (mut colorOption)) option="blue" inputId="radio-2"}}
         </label>
         <label for="radio-2" class="center">
           Blue
