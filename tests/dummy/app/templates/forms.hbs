@@ -57,11 +57,13 @@
       </p>
     </div>
 
+    <p>{{checkBoxList}}</p>
+
     {{#ons-list as |list|}}
       {{#list.header}}Checkboxes{{/list.header}}
       {{#list.item tappable=true}}
         <label class="left">
-          {{ons-input type="checkbox" input-id="check-1"}}
+          {{ons-input-checkbox appleBox inputId="check-1" update=(action (mut appleBox))}}
         </label>
         <label for="check-1" class="center">
           Apple
@@ -69,7 +71,7 @@
       {{/list.item}}
       {{#list.item tappable=true}}
         <label class="left">
-          {{ons-input type="checkbox" input-id="check-2"}}
+          {{ons-input-checkbox bananaBox inputId="check-2" update=(action (mut bananaBox))}}
         </label>
         <label for="check-2" class="center">
           Banana

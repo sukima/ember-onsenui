@@ -1,10 +1,19 @@
 import Ember from 'ember';
 import ons from 'ember-onsenui';
 
-const { Controller, get, inject: { service } } = Ember;
+const { Controller, get, computed, inject: { service } } = Ember;
 
 export default Controller.extend({
   menu: service(),
+
+  checkBoxList: computed('{appleBox,bananaBox}', {
+    get() {
+      return Ember.A([
+        get(this, 'appleBox') ? 'Apple': null,
+        get(this, 'bananaBox') ? 'Banana' : null
+      ]).compact().join(', ');
+    }
+  }),
 
   actions: {
     loginExample() {
