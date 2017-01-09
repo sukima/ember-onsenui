@@ -5,7 +5,8 @@ const { Mixin, get, tryInvoke } = Ember;
 export default Mixin.create({
   NON_ATTRIBUTE_BOUND_PROPS: ['class', 'classNames'],
   concatenatedProperties: ['NON_ATTRIBUTE_BOUND_PROPS'],
-  didReceiveAttrs() {
+
+  _updateDynamicBoundProperties() {
     this._super(...arguments);
     let $element = tryInvoke(this, '$element') || this.$();
 
@@ -14,5 +15,15 @@ export default Mixin.create({
         $element.attr(key, get(this, key));
       }
     }
+  },
+
+  didUpdateAttrs() {
+    this._super(...arguments);
+    this._updateDynamicBoundProperties();
+  },
+
+  didInsertElement() {
+    this._super(...arguments);
+    this._updateDynamicBoundProperties();
   }
 });
